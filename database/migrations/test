@@ -1,0 +1,79 @@
+>schema([
+                Wizard::make([
+                    Wizard\Step::make('Candidate Info')
+                        ->schema([
+                            Wizard::make([
+                                Wizard\Step::make('Candidate Info')
+                                    ->schema([
+                                        TextInput::make('Employee Name(Eng)')->required()->columnSpan(2),
+                                        TextInput::make('Employee Name(MM)')->required()->columnSpan(2),
+                                        TextInput::make('Father Name')->required()->columnSpan(2),
+                                        DatePicker::make('date_of_birth')->format('d/m/Y')->required()->columnSpan(2),
+                                        Select::make('race_id')
+                                            ->label('Race')
+                                            ->relationship('races', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        Select::make('religion_id')
+                                            ->label('Religion')
+                                            ->relationship('religion', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        Select::make('nationality_id')
+                                            ->label('Nationality')
+                                            ->relationship('nationality', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        Select::make('vacancy_id')
+                                            ->label('Vacancy')
+                                            ->relationship('vacancy', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        TextInput::make('Passport No')->required()->columnSpan(2),
+                                        TextInput::make('Driver License')->required()->columnSpan(2),
+                                        Fieldset::make('NRC')
+                                            ->schema([
+                                                Select::make('nrc_id')
+                                                    ->label('12/')
+                                                    ->relationship('nrc', 'name')
+                                                // ->searchable()
+                                                    ->required(),
+                                                Select::make('nrc_id')
+                                                    ->label('KaTaTa')
+                                                    ->relationship('vacancy', 'name')
+                                                // ->searchable()
+                                                    ->required(),
+                                                Select::make('nrc_id')
+                                                    ->label('N')
+                                                    ->relationship('vacancy', 'name')
+                                                // ->searchable()
+                                                    ->required(),
+                                                Select::make('nrc_id')
+                                                    ->label('445454')
+                                                    ->relationship('vacancy', 'name')
+                                                // ->searchable()
+                                                    ->required(),
+                                            ])
+                                            ->columns(4)->columnSpan(2),
+                                        Select::make('gender_id')
+                                            ->label('Gender')
+                                            ->relationship('gender', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        Select::make('bloodType_id')
+                                            ->label('Blood Type')
+                                            ->relationship('blood_type', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        Select::make('maritalStatus_id')
+                                            ->label('Marital Status')
+                                            ->relationship('marital_status', 'name')
+                                        // ->searchable()
+                                            ->required()->columnSpan(2),
+                                        TextInput::make('Home Phone')->required()->columnSpan(2),
+                                        TextInput::make('Mobile Phone')->required()->columnSpan(2),
+                                        TextInput::make('Social Media')->required()->columnSpan(2),
+                                        FileUpload::make('attachment')->required()->columnSpan(2),
+                                    ])->columns(6),
+                            ]),
+                        ]),
